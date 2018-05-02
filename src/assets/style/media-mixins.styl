@@ -1,0 +1,40 @@
+tablet-width = 768px
+desktop-width = 1024px
+large-size = 1800px
+extra-large-size = 1400px
+medium-size = 1200px
+extra-medium-size = 1000px
+small-size = 800px
+max-width = 600px
+
+tablet()
+  @media screen and (min-width: tablet-width) and (max-width: desktop-width - 1px)
+    {block}
+    
+desktop()
+  @media screen and (min-width: desktop-width)
+    {block}
+
+large()
+  @media only screen and (max-width: large-size)
+    {block}
+
+extra-large()
+  @media only screen and (max-width: extra-large-size)
+    {block}
+
+medium()
+  @media only screen and (max-width: medium-size)
+    {block}
+
+extra-medium()
+  @media only screen and (max-width: extra-medium-size)
+    {block}
+    
+small()
+  @media only screen and (max-width: small-size)
+    {block}
+    
+extra-small()
+  @media only screen and (max-width: max-width)
+    {block}

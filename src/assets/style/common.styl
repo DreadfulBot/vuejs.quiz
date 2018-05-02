@@ -1,0 +1,242 @@
+// PlaygroundArea
+
+.playground
+  padding: 80px 0 40px 0
+  background url("../assets/bg-green.jpg")
+  
+  .wrap-content
+    background url("../assets/brains.png") no-repeat top center
+    background-size cover
+    
+    h4
+      margin-top: 20px
+      
+// Playground
+$playground_height = 400px
+$question_area_height = 250px
+$vertical_margin = 20px
+
+.gradient-orange-radial
+  background: #fe6807;
+  background: -moz-radial-gradient(top, #fe3f0a 0%, #fe6807 100%);
+  background: -webkit-radial-gradient(top, #fe3f0a 0%, #fe6807 100%);
+  background: radial-gradient(to bottom, #fe3f0a 0%, #fe6807 100%);
+
+.gradient-orange
+  background: #fe6807;
+  background: -moz-linear-gradient(top, #fe6807 0%, #fe3f0a 100%);
+  background: -webkit-linear-gradient(top, #fe6807 0%,#fe3f0a 100%);
+  background: linear-gradient(to bottom, #fe6807 0%,#fe3f0a 100%);
+  border 1px solid #fea508
+  color: #fff
+  font-weight bolder
+
+.button-rounded
+  padding: 15px 5px
+  display: block
+  border-radius 7px
+  width: 300px
+  text-align: center
+  cursor pointer
+  font-size: 18px
+  line-height: 20px
+  +small()
+    width: auto
+    font-size: 14px
+    line-height: 16px
+
+.gradient-grey
+  background: #d1d1d1;
+  background: -moz-linear-gradient(top, #d1d1d1 0%, #eeeeee 100%);
+  background: -webkit-linear-gradient(top, #d1d1d1 0%,#eeeeee 100%);
+  background: linear-gradient(to bottom, #d1d1d1 0%,#eeeeee 100%);
+  border 1px solid #eeeeee
+  color: #262626
+  font-weight bolder
+
+.gradient-green
+  background: #2ec200;
+  background: -moz-linear-gradient(top, #2ec200 0%, #176500 100%);
+  background: -webkit-linear-gradient(top, #2ec200 0%,#176500 100%);
+  background: linear-gradient(to bottom, #2ec200 0%,#176500 100%);
+  border 1px solid #2ec200
+  color: #fff
+  font-weight bolder
+
+.text-regular
+  font-size: 16px
+  line-height: 22px
+  +small()
+    font-size: 14px
+    line-height: 16px
+
+.notAllowed
+  min-height  auto !important
+  display: block !important
+
+.alert
+  color: #ff9e0e
+  border 1px solid #ff9e0e
+  text-align: center
+  font-weight: bold
+  background white
+
+.playground-area
+  @extend .text-regular
+  font-family FiraSans-Regular
+  min-height $playground_height
+  margin-top: 40px
+  display: grid
+  grid-template-columns 65% auto
+  grid-column-gap 20px
+  
+  +small()
+    grid-template-columns 100%
+  
+  .red
+    color: #fe3f0a
+  
+  .green
+    color: #176500
+  
+  .main-area
+    
+    .top-bar
+      @extend .gradient-grey
+      
+      ul
+        text-align: center
+        li
+          display: inline-block
+          padding 2px 5px
+          color: #b6b6b6
+          cursor pointer
+          
+          a
+            color: #b6b6b6
+    
+    .question-area
+      @extend .text-regular
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-direction: column
+      min-height $question_area_height
+      margin-top $vertical_margin
+      background url("../assets/playground-question-bg.png")
+      background-size cover
+      padding: 20px 30px
+      margin-bottom $vertical_margin
+      color: #fff
+      font-size: 16px
+      line-height: 18px
+      
+      +small()
+        min-height: 200px
+        font-size: 14px
+        line-height: 16px
+    
+    .start-game
+      @extends .gradient-green
+      @extends .button-rounded
+      margin-bottom: 20px
+    
+    .attention
+      outline 2px solid red
+    .answers-area
+      height: 150px
+      width: auto
+      
+      display: grid
+      grid-template-columns 49% 49%
+      justify-content space-between
+      
+      grid-template-rows 60px 60px
+      grid-row-gap $vertical_margin
+      
+      +extra-small()
+        grid-template-columns 100%
+        grid-template-rows 50px 50px 50px 50px
+        grid-row-gap 10px
+        height: 230px
+      
+      &-enter
+        -webkit-animation: zoomIn 0.5s;
+        -moz-animation:    zoomIn 0.5s;
+        -o-animation:      zoomIn 0.5s;
+        animation:         zoomIn 0.5s;
+      
+      .answer-button
+        center(100%)
+        width: 100%
+        @extends .button-rounded
+        display: flex
+        justify-content: center
+        align-items: center
+        overflow hidden
+        
+        
+        .wrapper
+          display: flex
+          justify-content: center
+          align-items: center
+          font-size: 14px
+          line-height: 16px
+          padding 0 10px
+    
+    .sign-in
+      @extends .button-rounded
+      @extends .gradient-orange
+      margin 0 auto
+      margin-top: $vertical_margin
+      +small()
+        center(100%)
+  
+  
+  .sidebar
+    @extends .gradient-orange-radial
+    min-height: $playground_height + 75px
+    
+    +small()
+      min-height auto
+      margin-top: $vertical_margin
+      background-position top center
+    .winner
+      margin-top: 10px
+      color: gold
+      text-align: center
+    .wrapper
+      padding 10px
+      color: #fff
+      
+      h3
+        text-transform uppercase
+        font-weight: bolder
+        text-align: center
+        margin-bottom: 20px
+      
+      p
+        font-weight: bolder
+        @extend .text-regular
+        
+        
+        span
+          font-weight: normal
+          margin-left: 10px
+.logo
+  background url("../assets/G.png") no-repeat
+  background-size contain
+  margin-top: 205px
+  margin-left auto
+  width: 150px
+  height: 150px
+  
+  +small()
+    display: none
+
+.list-enter-active, .list-leave-active
+  transition: all 1s
+
+.list-enter, .list-leave-to
+  opacity: 0
+  transform: translateY(30px)
