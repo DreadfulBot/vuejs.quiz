@@ -289,7 +289,9 @@ export default {
     reloadGame () {
       this.isQuestionsLoaded = false
       this.isGameFinished = false
-      this.loadNewQuestions(this.startNewGame())
+      this.loadNewQuestions.then(() =>
+        this.startNewGame()
+      );
     },
 
     async loadNewQuestions () {
