@@ -1,4 +1,4 @@
-import tingle from '../../../node_modules/tingle.js/dist/tingle.min'
+import tingle from 'tingle.js/dist/tingle.min'
 
 function bindModal (button, content) {
   let modal = createModal()

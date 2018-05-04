@@ -464,8 +464,3 @@ export default {
 	}
 }
 </script>
-
-<style lang="stylus" scoped>
-    @import "../assets/style/media-mixins.styl"
-    @import "../assets/style/common.styl"
-</style>
