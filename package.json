@@ -11,7 +11,7 @@
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
-    "ga": "git add .&&git commit -m process.env.c&&git push origin master"
+    "ga": "git add .&&git commit -m 'process.env.c'&&git push origin master"
   },
   "dependencies": {
     "axios": "^0.18.0",
