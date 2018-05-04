@@ -2,6 +2,13 @@
 
 ![vuejs-quiz](https://github.com/DreadfulBot/vuejs.quiz/blob/master/build/screenshot.png "vuejs-quiz")
 
+#installation
+
+```cmd
+npm i vuejs-quiz
+yarn add vuejs-quiz
+```
+
 # for what?
 
 > VueJS component for creating quizes where user should choose 1 right answer of 4 variants
