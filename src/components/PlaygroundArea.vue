@@ -166,7 +166,7 @@ export default {
 
 	methods: {
 		async loadStatistics () {
-			if (this.discountCode === null && this.wrongAnswers !== 0) {
+			if (this.discountCode === null && this.wrongAnswers === 0) {
 				let response = await this.iServer.loadStatistics(this.secret);
 				this.discountCode = response.data.data.code;
 			}

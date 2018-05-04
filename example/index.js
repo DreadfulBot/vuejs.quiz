@@ -4,7 +4,7 @@ import VueCookie from 'vue-cookie';
 import PlaygroundArea from '../src/components/PlaygroundArea.vue';
 import {iServer} from '../src/assets/js/iServerRemote';
 
-Vue.config.productionTip = !isDev;
+Vue.config.productionTip = isDev;
 Vue.use(VueCookie);
 
 new Vue({
