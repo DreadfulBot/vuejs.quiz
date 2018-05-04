@@ -6,7 +6,7 @@ if(len(sys.argv) < 2):
 else:
     comment = sys.argv[1]
 
-command = "git commit -m '" + comment + "'"
+command = "git commit -m \"" + comment + "\""
 
 
 subprocess.call(command)
