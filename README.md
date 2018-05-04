@@ -1,6 +1,6 @@
 # vuejs-quiz
 
-![vuejs-quiz](relative/path/to/img.jpg?raw=true "vuejs-quiz")
+![vuejs-quiz](https://github.com/DreadfulBot/vuejs.quiz/blob/master/build/screenshot.png "vuejs-quiz")
 
 # for what?
 
