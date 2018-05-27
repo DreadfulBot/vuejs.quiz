@@ -1,6 +1,6 @@
 {
   "name": "vuejs-quiz",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "vuejs component for creating quizes where user should choose 1 right answer of 4 variants",
   "author": "Krivoshchekov Artem <zorg1995@yandex.ru>",
   "repository": "git@github.com:DreadfulBot/vuejs.quiz.git",
@@ -11,7 +11,7 @@
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
-		"f": "git add .&&git commit -m 'fixes'&&npm version patch&&nmp publish"
+    "f": "git add .&&git commit -m 'fixes'&&npm version patch&&nmp publish"
   },
   "dependencies": {
     "axios": "^0.18.0",
