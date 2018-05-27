@@ -43,7 +43,7 @@ export default {
 			return -1;
 		}
 
-		if(this.settings.onMounted) this.settings.onMounted();
+		if(this.settings.onMounted) this.settings.onMounted(this);
 	},
 
 	onGameStart () {
