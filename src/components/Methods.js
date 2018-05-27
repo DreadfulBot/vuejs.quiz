@@ -1,3 +1,5 @@
+import {showModal} from '../assets/js/modal';
+
 export default {
 	// ******************************
 	// game life cycle

@@ -73,7 +73,6 @@ export default {
 
 	created () {
 		this.onCreated();
-		this.onGameStart();
 	},
 
 	mounted () {
