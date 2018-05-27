@@ -1,6 +1,6 @@
 {
   "name": "vuejs-quiz",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "vuejs component for creating quizes where user should choose 1 right answer of 4 variants",
   "author": "Krivoshchekov Artem <zorg1995@yandex.ru>",
   "repository": "git@github.com:DreadfulBot/vuejs.quiz.git",
