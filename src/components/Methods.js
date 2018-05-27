@@ -27,6 +27,8 @@ export default {
 						this.isErrorObtained = true;
 					})
 				}
+
+				if(this.settings.onCreated) this.settings.onCreated(this);
 			})
 			.catch((e) => {
 				console.log('unable to load secret');
@@ -40,6 +42,8 @@ export default {
 		if (this.isIE) {
 			return -1;
 		}
+
+		if(this.settings.onMounted) this.settings.onMounted();
 	},
 
 	onGameStart () {
@@ -55,15 +59,20 @@ export default {
 
 		this.initTimer();
 		this.saveCookieContext();
+
+		if(this.settings.onStarted) this.settings.onStarted(this);
 	},
 
 	onGameFinished () {
 		this.isGameFinished = true;
 		this.gameEndTime = Math.trunc((new Date()).getTime() / 1000);
 		this.stopTimer();
+
 		this.loadStatistics().then(() => {
 			this.saveQuestionContextToCookies();
 			this.saveCookieContext();
+
+			if(this.settings.onFinished) this.settings.onFinished(this);
 		})
 	},
 
@@ -71,14 +80,17 @@ export default {
 		this.currentQuestionIndex = (this.currentQuestionIndex + 1) % Object.keys(this.questions).length;
 		this.saveQuestionContextToCookies();
 		this.saveCookieContext();
+
+		if(this.settings.onQuestionChanged) this.settings.onQuestionChanged(this);
 	},
 
-	onGameReloaded () {
+	onGameRestarted () {
 		this.isQuestionsLoaded = false;
 		this.isGameFinished = false;
-		this.loadNewQuestions().then(() =>
-			this.onGameStart()
-		)
+		this.loadNewQuestions().then(() => {
+			this.onGameStart();
+			if(this.settings.onGameRestarted) this.settings.onGameRestarted(this);
+		})
 	},
 
 	// ******************************
@@ -87,7 +99,7 @@ export default {
 
 	async loadStatistics () {
 		if (this.discountCode === null && this.wrongAnswers === 0) {
-			let response = await this.iServer.loadStatistics(this.secret);
+			let response = await this.settings.iServer.loadStatistics(this.secret);
 			this.discountCode = response.data.data.code;
 		}
 
@@ -206,7 +218,7 @@ export default {
 	},
 
 	async loadNewQuestions () {
-		let response = await this.iServer.loadNewQuestions();
+		let response = await this.settings.iServer.loadNewQuestions();
 
 		this.questions = Object.keys(response.data.data).map((key) => {
 			return response.data.data[key];
@@ -236,7 +248,7 @@ export default {
 		let ids = this.questionsContext.map((v) => {
 			return v.id
 		});
-		let response = await this.iServer.loadQuestionsFromCookieQuestionContext(ids);
+		let response = await this.settings.iServer.loadQuestionsFromCookieQuestionContext(ids);
 
 		this.questions = Object.keys(response.data.data).map((key) => {
 			return response.data.data[key];
@@ -263,7 +275,7 @@ export default {
 	},
 
 	async loadSecret () {
-		let secret = await this.iServer.loadSecret();
+		let secret = await this.settings.iServer.loadSecret();
 		this.secret = secret.data.data;
 	},
 
@@ -315,7 +327,7 @@ export default {
 
 		let answerIndex = parseInt(event.currentTarget.id);
 
-		let response = await this.iServer.processAnswer(question, this.secret);
+		let response = await this.settings.iServer.processAnswer(question, this.secret);
 
 		if (response.data.data !== answerIndex) {
 			this.wrongAnswers++;

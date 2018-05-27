@@ -13,7 +13,7 @@
 
 			.question-area
 				a.start-game(v-if="!isGameStarted && !isGameFinished" v-on:click="onGameStart" v-bind:class="{ attention: !isBorderShow }") Начать игру
-				a.start-game(v-if="isGameFinished" v-on:click="onGameReloaded" v-bind:class="{ attention: !isBorderShow }") Запустить заново
+				a.start-game(v-if="isGameFinished" v-on:click="onGameRestarted" v-bind:class="{ attention: !isBorderShow }") Запустить заново
 
 				transition(appear name="custom-classes-transition" enter-active-class="animated slideInUp")
 					div(v-if="isQuestionsLoaded" v-html="questions[currentQuestionIndex].text" v-bind:key="currentQuestionIndex")
@@ -63,14 +63,13 @@
 
 <script>
 
-import { bindModal, showModal } from '../assets/js/modal'
 import { Core } from './Core';
 import 'babel-polyfill'
 
 export default {
 	extends: Core,
 
-	props: [ 'placeholder' ],
+	props: ['settings'],
 
 	created () {
 		this.onGameStart();
@@ -78,7 +77,6 @@ export default {
 	},
 
 	mounted () {
-		bindModal(this.$refs['show-callback'], document.querySelector('form#callback'));
 		this.onMounted();
 	},
 

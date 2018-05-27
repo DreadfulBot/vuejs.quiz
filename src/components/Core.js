@@ -28,7 +28,7 @@ let Core = {
 		isIE: false,
 	}),
 
-	props: ['iServer'],
+	props: ['settings'],
 
 	computed: {
 		seconds () {

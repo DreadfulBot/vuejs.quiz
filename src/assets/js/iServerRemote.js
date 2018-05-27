@@ -2,9 +2,7 @@ import axios from 'axios/dist/axios.min'
 
 class iServerRemote {
 	constructor () {
-		this.url = isDev
-			? 'http://localhost:81/mamochkagoda/online-game/'
-			: 'http://quiz.kondratest.ru/online-game/'
+		this.url = 'http://genium-quiz.com/online-game/';
 	}
 
 	async loadStatistics (secret) {
