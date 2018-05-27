@@ -72,8 +72,8 @@ export default {
 	props: ['settings'],
 
 	created () {
-		this.onGameStart();
 		this.onCreated();
+		this.onGameStart();
 	},
 
 	mounted () {
