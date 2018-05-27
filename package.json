@@ -11,7 +11,7 @@
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
-    "f": "git add .&&git commit -m 'fixes'&&npm version patch&&nmp publish"
+    "f": "git add .&&git commit -m 'fixes'&&npm version patch&&npm publish"
   },
   "dependencies": {
     "axios": "^0.18.0",
