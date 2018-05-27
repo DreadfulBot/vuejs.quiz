@@ -27,13 +27,13 @@ export default {
 						this.isErrorObtained = true;
 					})
 				}
-
-				if(this.settings.onCreated) this.settings.onCreated(this);
 			})
 			.catch((e) => {
 				console.log('unable to load secret');
 				this.isErrorObtained = true;
-			})
+			});
+
+		if(this.settings.onCreated) this.settings.onCreated(this);
 	},
 
 	onMounted () {
@@ -71,9 +71,9 @@ export default {
 		this.loadStatistics().then(() => {
 			this.saveQuestionContextToCookies();
 			this.saveCookieContext();
+		});
 
-			if(this.settings.onFinished) this.settings.onFinished(this);
-		})
+		if(this.settings.onFinished) this.settings.onFinished(this);
 	},
 
 	onQuestionChanged () {
@@ -89,8 +89,9 @@ export default {
 		this.isGameFinished = false;
 		this.loadNewQuestions().then(() => {
 			this.onGameStart();
-			if(this.settings.onGameRestarted) this.settings.onGameRestarted(this);
-		})
+		});
+
+		if(this.settings.onGameRestarted) this.settings.onGameRestarted(this);
 	},
 
 	// ******************************
