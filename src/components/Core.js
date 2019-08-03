@@ -1,32 +1,34 @@
 import Methods from './Methods';
 
 let Core = {
-	data: () => ({
-		questions: null,
-		questionsContext: null,
+	data: () => {
+		return {
+			questions: null,
+			questionsContext: null,
 
-		isQuestionsLoaded: false,
+			isQuestionsLoaded: false,
 
-		currentQuestionIndex: 0,
+			currentQuestionIndex: 0,
 
-		wrongAnswers: 0,
-		questionsAnswered: 0,
+			wrongAnswers: 0,
+			questionsAnswered: 0,
 
-		isGameStarted: false,
-		isGameFinished: false,
-		isBorderShow: true,
-		gameStartTime: null,
-		gameEndTime: null,
-		now: Math.trunc((new Date()).getTime() / 1000),
-		isErrorObtained: false,
+			isGameStarted: false,
+			isGameFinished: false,
+			isBorderShow: true,
+			gameStartTime: null,
+			gameEndTime: null,
+			now: Math.trunc((new Date()).getTime() / 1000),
+			isErrorObtained: false,
 
-		timerInterval: null,
-		borderInterval: null,
-		isBusy: false,
-		secret: null,
-		discountCode: null,
-		isIE: false,
-	}),
+			timerInterval: null,
+			borderInterval: null,
+			isBusy: false,
+			secret: null,
+			discountCode: null,
+			isIE: false,
+		}
+	},
 
 	props: ['settings'],
 
