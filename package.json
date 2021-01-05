@@ -14,7 +14,7 @@
     "f": "git add .&&git commit -m 'fixes'&&npm version patch&&npm publish"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
